@@ -7,6 +7,10 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 crewai = { extras = ["tools"], version = "^0.51.0" }
+pillow = "^10.4.0"
+python-dotenv = "^1.0.1"
+langchain = "^0.2.14"
+cohere = "^5.8.1"
 
 [tool.poetry.scripts]
 wheres_the_wheelbarrow = "wheres_the_wheelbarrow.main:run"

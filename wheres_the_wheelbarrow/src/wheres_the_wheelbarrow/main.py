@@ -11,10 +11,7 @@ def run():
     """
     Run the crew.
     """
-    inputs = {
-        
-    }
-    WheresTheWheelbarrowCrew().crew().kickoff(inputs=inputs)
+    WheresTheWheelbarrowCrew().crew().kickoff()
 
 
 def train():
@@ -52,3 +49,5 @@ def test():
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
+
+

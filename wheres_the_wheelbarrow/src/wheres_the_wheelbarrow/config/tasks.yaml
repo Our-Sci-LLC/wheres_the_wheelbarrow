@@ -1,25 +1,52 @@
+image_processing_task: 
+  description: >
+    Prompt the user for an image path. You must wait for human feedback and the image path 
+    to be provided.
+  expected_output: >
+    Image path ready for analysis. 
+  agent: image_processor
+
 image_recognition_task:
   description: >
-    Analyzes an image to identify farm and agricultural objects and determine their
-    relative spatial locations within the image, such as 'next to the barn'. 
+    Analyzes an image to identify farm and agricultural objects and determine their relative spatial locations within the image, such as 'next to the barn'. 
   expected_output: >
-    A dictionary of recognized objects with details including their names and spatial
-    relationships to other objects or landmarks
+    A dictionary of recognized objects with details including their names and spatial relationships to other objects or landmarks
   agent: image_recognition
+  context: 
+    - image_processing_task
 
-inventory_management_task:
-  description: >
-    Organizes a dictionary of recognized objects and their spatial locations into a structured
-    format for database storage. 
-  expected_output: >
-    A structured inventory list, including spatial location data that can be easily inserted
-    into a database table 
-  agent: inventory_management
-
-inventory_insert_task: 
-  description: >
-    Inserts a structured inventory list, including spatial location data into a 
-    specified database table. 
-  expected_output: >
-    The database has been updated to include the new inventory. 
-  agent: inventory_management
+#inventory_management_task:
+#  description: >
+#    Organizes a dictionary of recognized objects and their spatial locations into a structured
+#    format for database storage. 
+#  expected_output: >
+#    A structured inventory list, including spatial location data that can be easily inserted
+#    into a database table 
+#  agent: inventory_management
+#  context: 
+#    - image_recognition_task
+#
+#database_management_task: 
+#  description: > 
+#    Manages a database, including the creation of the database when necessary. 
+#  expected_output: >
+#    A database or queries to a database. 
+#  agent: database_developer
+#
+#inventory_insert_task: 
+#  description: >
+#    Inserts items from a structured inventory dictionary, including the object name and the spatial location data into a 
+#    specified database. 
+#  expected_output: >
+#    The database has been updated to include the new inventory. 
+#  agent: database_developer
+#  context: 
+#    - inventory_management_task
+#
+#inventory_retrieval_task: 
+#  description: >
+#    Retrieves items from a database, including the object name and the spatial location of the object. 
+#    Make sure to check with a human to ask what they would like to find on their farm.
+#  expected_output: >
+#    A natural language human response which includes object name and object location.
+#  agent: database_developer
