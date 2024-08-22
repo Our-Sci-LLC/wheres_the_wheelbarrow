@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "wheres_the_wheelbarrow"
+version = "0.1.0"
+description = "wheres_the_wheelbarrow using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.51.0" }
+
+[tool.poetry.scripts]
+wheres_the_wheelbarrow = "wheres_the_wheelbarrow.main:run"
+run_crew = "wheres_the_wheelbarrow.main:run"
+train = "wheres_the_wheelbarrow.main:train"
+replay = "wheres_the_wheelbarrow.main:replay"
+test = "wheres_the_wheelbarrow.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
