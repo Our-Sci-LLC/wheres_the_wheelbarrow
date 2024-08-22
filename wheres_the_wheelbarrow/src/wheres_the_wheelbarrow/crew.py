@@ -14,31 +14,30 @@ class WheresTheWheelbarrowCrew():
 	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def researcher(self) -> Agent:
+	def image_recognition(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['image_recognition'],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def inventory_management(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['inventory_management'],
 			verbose=True
 		)
 
 	@task
-	def research_task(self) -> Task:
+	def image_recognition_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
+			config=self.tasks_config['image_recognition_task'],
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def inventory_management_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['inventory_management_task'],
 		)
 
 	@crew
