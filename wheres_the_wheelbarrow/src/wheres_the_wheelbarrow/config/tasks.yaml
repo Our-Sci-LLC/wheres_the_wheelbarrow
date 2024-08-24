@@ -1,19 +1,30 @@
 image_processing_task: 
   description: >
-    Prompt the user for an image path. You must wait for human feedback and the image path 
-    to be provided.
+    Prompt the user for an image path. You must wait for human feedback and the image path to be provided.
   expected_output: >
     Image path ready for analysis. 
   agent: image_processor
 
-image_recognition_task:
+image_recognizing_task: 
   description: >
-    Analyzes an image to identify farm and agricultural objects and determine their relative spatial locations within the image, such as 'next to the barn'. 
+    Identify the objects in an image.
   expected_output: >
-    A dictionary of recognized objects with details including their names and spatial relationships to other objects or landmarks
-  agent: image_recognition
-  context: 
-    - image_processing_task
+    A list of objects.
+  agent: image_recognizer
+
+#image_recognition_task: 
+#  description: > 
+#    Analyze an image and identify the farm equipment.
+#  expected_output: >
+#    A list containing the objects identified in the image.
+#  agent: image_recognizer
+
+#image_recognition_task:
+#  description: >
+#    Analyzes an image to identify farm and agricultural objects and determine their relative spatial locations within the image, such as 'next to the barn'. 
+#  expected_output: >
+#    A dictionary of recognized objects with details including their names and spatial relationships to other objects or landmarks
+#  agent: image_recognition
 
 #inventory_management_task:
 #  description: >
