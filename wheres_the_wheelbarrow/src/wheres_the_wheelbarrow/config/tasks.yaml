@@ -5,12 +5,12 @@ image_processing_task:
     Image path ready for analysis. 
   agent: image_processor
 
-image_recognizing_task: 
-  description: >
-    Identify the objects in an image.
-  expected_output: >
-    A list of objects.
-  agent: image_recognizer
+#image_recognizing_task: 
+#  description: >
+#    Identify the objects in an image.
+#  expected_output: >
+#    A list of objects.
+#  agent: image_recognizer
 
 #image_recognition_task: 
 #  description: > 

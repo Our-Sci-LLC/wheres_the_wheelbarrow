@@ -58,3 +58,18 @@
         return Task(
             config=self.tasks_config['image_recognizing_task']
         ) 
+
+
+		    @agent
+    def image_recognizer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['image_recognizer'],
+            verbose=True,
+            llm=llm
+        ) 
+    
+    @task
+    def image_recognizing_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['image_processing_task']
+        ) 
