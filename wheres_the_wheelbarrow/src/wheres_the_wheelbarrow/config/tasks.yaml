@@ -1,8 +1,8 @@
 image_processing_task: 
   description: >
-    Prompt the user for an image path. You must wait for human feedback and the image path to be provided.
+    Write a story about farm adventures
   expected_output: >
-    Image path ready for analysis. 
+    A story
   agent: image_processor
 
 #image_recognizing_task: 

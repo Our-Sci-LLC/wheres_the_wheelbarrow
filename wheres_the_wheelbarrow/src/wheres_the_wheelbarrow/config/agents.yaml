@@ -1,10 +1,10 @@
 image_processor: 
   role: >
-    Communication Expert
+    Expert Story Writer
   goal: >
-    Get an image path from a real human through communication
+    Write a story about farm adventures
   backstory: >
-    You are a experienced human communicator. You are straight to the point and know what to ask.
+    You are an experienced storywriter. 
 
 image_recognizer:
   role: >

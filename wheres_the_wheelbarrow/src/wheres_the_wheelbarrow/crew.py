@@ -6,7 +6,10 @@ import os
 
 from langchain_cohere import ChatCohere
 from langchain_ollama import ChatOllama
+from openai import OpenAI
+
 from dotenv import load_dotenv
+from langchain_huggingface import HuggingFaceEndpoint
 
 # Initialize language model
 load_dotenv()
@@ -16,12 +19,19 @@ load_dotenv()
 #llm = ChatCohere()
 
 # To use local llama (is actually on rose's computer) - the base_url needs to be changed and the server up to actually work (works 1/7 times running crewai run)
-os.environ["OPENAI_API_KEY"] = "NA"
+#os.environ["OPENAI_API_KEY"] = "NA"
 #ip_address = os.getenv('OLLAMA_HOST')
 
-llm = ChatOllama(
-    model = "llama3.1",
-    base_url = "https://e4b7-97-132-96-25.ngrok-free.app")
+#os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
+os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv('OPENAI_API_KEY')
+os.environ["OPENAI_API_BASE"] = '' # this should probably be in secrets 
+
+os.environ["OPENAI_MODEL_NAME"] = 'Meta-llama-3-1-8b-instruct-vno'
+#llm = OpenAI()
+llm = HuggingFaceEndpoint(
+    endpoint_url = '' # redacted for now
+)
 
 # Check our tools documentations for more information on how to use them
 # from crewai_tools import SerperDevTool
