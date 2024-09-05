@@ -14,6 +14,7 @@ cohere = "^5.8.1"
 langchain-ollama = "^0.1.1"
 langchain-huggingface = "^0.0.3"
 agentops = "^0.3.10"
+openai = "^1.43.0"
 
 [tool.poetry.scripts]
 wheres_the_wheelbarrow = "wheres_the_wheelbarrow.main:run"

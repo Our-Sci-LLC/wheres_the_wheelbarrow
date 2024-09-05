@@ -4,7 +4,7 @@ from datetime import date
 
 class TripTasks:
 
-    def identify_task(self, agent, photo):
+    def identify_task(self, agent):
         return Task(
             description=dedent(f"""
                 Write a charming short story about a farmer and their
@@ -13,7 +13,6 @@ class TripTasks:
                 Your final answer must be a story no longer than 350 words.
                 {self.__tip_section()}
 
-                Photo URL: {photo}
             """),
             agent=agent,
             expected_output="Short story about a farm"

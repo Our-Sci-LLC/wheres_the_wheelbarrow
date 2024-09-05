@@ -1,13 +1,21 @@
 from crewai import Agent
 import os
 from langchain_huggingface import HuggingFaceEndpoint
-endpoint_url = os.getenv('HUGGING_FACE_META_LLAMA_ENDPOINT')
-api_token = os.getenv('HUGGINGFACEHUB_API_TOKEN')
+
+from dotenv import load_dotenv
+
+load_dotenv()
+#os.environ["OPENAI_API_BASE"]=os.getenv('HUGGING_FACE_META_LLAMA_ENDPOINT')
+#os.environ["OPENAI_MODEL_NAME"]='llama-2-7b-chat-hf-fie'
+#os.environ["OPENAI_API_KEY"]=os.getenv('HUGGINGFACEHUB_API_TOKEN')
+
+#llm = ChatOpenAI(openai_api_base=os.environ.get("HUGGING_FACE_META_LLAMA_ENDPOINT"),
+#                 openai_api_key=os.environ.get('HUGGINGFACEHUB_API_TOKEN'),
+#                 model_name='llama-2-7b-chat-hf-fie')
 
 llm = HuggingFaceEndpoint(
-    endpoint_url=endpoint_url,
-    task="text-generation",
-    headers={"Authorization": f"Bearer {api_token}"}
+    endpoint_url=os.getenv('HUGGING_FACE_META_LLAMA_ENDPOINT'),
+    huggingfacehub_api_token=os.getenv('HUGGINGFACEHUB_API_TOKEN'),
 )
 
 class TripAgents():
