@@ -1,54 +1,54 @@
 #!/usr/bin/env python
-import sys
-from wheres_the_wheelbarrow.crew import WheresTheWheelbarrowCrew
+import agentops
+import os
+os.environ["AGENTOPS_API_KEY"] = os.getenv('AGENTOPS_API_KEY')
 
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding necessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+from crewai import Crew
+from textwrap import dedent
+from config.trip_agents import TripAgents
+from config.trip_tasks import TripTasks
 
-def run():
-    """
-    Run the crew.
-    """
-    WheresTheWheelbarrowCrew().crew().kickoff()
+from dotenv import load_dotenv
+load_dotenv()
 
+class TripCrew:
+  def __init__(self, photo):
+    self.photo = photo
 
+  def run(self):
+    agentops.init()
+    agents = TripAgents()
+    tasks = TripTasks()
 
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        #"topic": "AI LLMs"
-    }
-    try:
-        WheresTheWheelbarrowCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+    city_selection_agent = agents.city_selection_agent()
 
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
+    identify_task = tasks.identify_task(
+      city_selection_agent,
+      self.photo
+    )
 
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        WheresTheWheelbarrowCrew().crew().replay(task_id=sys.argv[1])
+    crew = Crew(
+      agents=[
+        city_selection_agent
+      ],
+      tasks=[identify_task],
+      verbose=True
+    )
 
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+    result = crew.kickoff()
+    return result
 
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {
-        #"topic": "AI LLMs"
-    }
-    try:
-        WheresTheWheelbarrowCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-
+if __name__ == "__main__":
+  print("## Welcome to Farm Management Crew!")
+  print('-------------------------------')
+  photo = input(
+    dedent("""
+      What is the photo URL?
+    """))
+  
+  trip_crew = TripCrew(photo)
+  result = trip_crew.run()
+  print("\n\n########################")
+  print("## Here are the objects extracted from the image!")
+  print("########################\n")
+  print(result)

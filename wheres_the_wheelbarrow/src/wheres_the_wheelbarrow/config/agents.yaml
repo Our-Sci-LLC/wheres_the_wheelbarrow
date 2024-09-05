@@ -1,18 +1,18 @@
-image_processor: 
-  role: >
-    Expert Story Writer
-  goal: >
-    Write a story about farm adventures
-  backstory: >
-    You are an experienced storywriter. 
-
-image_recognizer:
-  role: >
-    Image Specialist 
-  goal: >
-    To identify and list objects present in an image.
-  backstory: >
-    You a seasoned expert who has been trained extensively in visual recognition. 
+#image_processor: 
+#  role: >
+#    Expert Story Writer
+#  goal: >
+#    Write a story about farm adventures
+#  backstory: >
+#    You are an experienced storywriter. 
+#
+#image_recognizer:
+#  role: >
+#    Image Specialist 
+#  goal: >
+#    To identify and list objects present in an image.
+#  backstory: >
+#    You a seasoned expert who has been trained extensively in visual recognition. 
 
 #image_recognition:
 #  role: >

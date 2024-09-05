@@ -13,6 +13,7 @@ langchain = "^0.2.14"
 cohere = "^5.8.1"
 langchain-ollama = "^0.1.1"
 langchain-huggingface = "^0.0.3"
+agentops = "^0.3.10"
 
 [tool.poetry.scripts]
 wheres_the_wheelbarrow = "wheres_the_wheelbarrow.main:run"

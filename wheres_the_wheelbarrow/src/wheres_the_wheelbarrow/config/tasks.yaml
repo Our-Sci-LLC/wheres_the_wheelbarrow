@@ -1,9 +1,9 @@
-image_processing_task: 
-  description: >
-    Write a story about farm adventures
-  expected_output: >
-    A story
-  agent: image_processor
+#image_processing_task: 
+#  description: >
+#    Write a story about farm adventures
+#  expected_output: >
+#    A story
+#  agent: image_processor
 
 #image_recognizing_task: 
 #  description: >
